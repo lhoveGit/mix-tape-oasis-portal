@@ -16,9 +16,9 @@ interface MixtapeCardProps {
 
 const MixtapeCard = ({ mixtape, onPlay, onDownload, onLike, onShare }: MixtapeCardProps) => {
   return (
-    <div className="mixtape-card group">
+    <div className="mixtape-card group w-full max-w-sm mx-auto">
       {mixtape.featured && (
-        <Badge className="absolute top-3 left-3 z-10 bg-gradient-to-r from-yellow-500 to-orange-500 text-black">
+        <Badge className="absolute top-3 left-3 z-10 bg-gradient-to-r from-yellow-500 to-orange-500 text-black font-semibold">
           Featured
         </Badge>
       )}
@@ -55,7 +55,7 @@ const MixtapeCard = ({ mixtape, onPlay, onDownload, onLike, onShare }: MixtapeCa
 
         <div className="flex items-center justify-between text-xs text-muted-foreground">
           <span>{mixtape.duration}</span>
-          <Badge variant="outline" className="border-purple-500/30 text-purple-400">
+          <Badge variant="outline" className="border-purple-500/30 text-purple-400 text-xs">
             {mixtape.genre}
           </Badge>
         </div>
@@ -65,14 +65,14 @@ const MixtapeCard = ({ mixtape, onPlay, onDownload, onLike, onShare }: MixtapeCa
           <span>{mixtape.likes} likes</span>
         </div>
 
-        <div className="flex items-center space-x-1">
+        <div className="grid grid-cols-3 gap-1">
           <Button
             onClick={() => onLike(mixtape.id)}
             variant="ghost"
             size="sm"
-            className="flex-1 hover:bg-red-500/10 hover:text-red-400"
+            className="hover:bg-red-500/10 hover:text-red-400 text-xs"
           >
-            <Heart className="w-4 h-4 mr-1" />
+            <Heart className="w-3 h-3 mr-1" />
             Like
           </Button>
           
@@ -80,9 +80,9 @@ const MixtapeCard = ({ mixtape, onPlay, onDownload, onLike, onShare }: MixtapeCa
             onClick={() => onShare(mixtape)}
             variant="ghost"
             size="sm"
-            className="flex-1 hover:bg-blue-500/10 hover:text-blue-400"
+            className="hover:bg-blue-500/10 hover:text-blue-400 text-xs"
           >
-            <Share className="w-4 h-4 mr-1" />
+            <Share className="w-3 h-3 mr-1" />
             Share
           </Button>
           
@@ -90,9 +90,9 @@ const MixtapeCard = ({ mixtape, onPlay, onDownload, onLike, onShare }: MixtapeCa
             onClick={() => onDownload(mixtape)}
             variant="ghost"
             size="sm"
-            className="flex-1 hover:bg-green-500/10 hover:text-green-400"
+            className="hover:bg-green-500/10 hover:text-green-400 text-xs"
           >
-            <Download className="w-4 h-4 mr-1" />
+            <Download className="w-3 h-3 mr-1" />
             Download
           </Button>
         </div>

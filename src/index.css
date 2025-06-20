@@ -67,7 +67,7 @@
   }
 
   .announcement-bar {
-    @apply bg-gradient-to-r from-purple-600 to-blue-600 text-white text-center py-2 text-sm font-medium;
+    @apply bg-gradient-to-r from-purple-600 to-blue-600 text-white text-center text-sm font-medium;
   }
 
   .nav-link {

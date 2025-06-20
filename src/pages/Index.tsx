@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo } from 'react';
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 import { toast } from '@/hooks/use-toast';
@@ -120,32 +119,34 @@ const Index = () => {
         <AnnouncementBar />
         <AppSidebar />
         
-        <main className="flex-1 flex flex-col">
-          <div className="flex items-center gap-2 p-4 border-b border-white/10 md:hidden">
+        <main className="flex-1 flex flex-col pt-10">
+          <div className="flex items-center gap-2 p-4 border-b border-white/10 lg:hidden">
             <SidebarTrigger />
             <span className="text-lg font-semibold">MixTape Portal</span>
           </div>
           <Header onSearch={setSearchQuery} />
           
-          <div className="flex-1 container mx-auto px-4 py-8 pb-32">
+          <div className="flex-1 px-4 lg:px-8 py-8 pb-32 max-w-screen-2xl mx-auto w-full">
             <div className="mb-8">
-              <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent mb-2">
+              <h1 className="text-3xl lg:text-5xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent mb-4">
                 Discover Amazing Mixtapes
               </h1>
-              <p className="text-muted-foreground text-lg">
+              <p className="text-muted-foreground text-lg lg:text-xl max-w-2xl">
                 The best collection of mixtapes from top artists around the world
               </p>
             </div>
 
-            <GenreFilter
-              selectedGenre={selectedGenre}
-              onGenreSelect={setSelectedGenre}
-            />
+            <div className="mb-8">
+              <GenreFilter
+                selectedGenre={selectedGenre}
+                onGenreSelect={setSelectedGenre}
+              />
+            </div>
 
             {featuredMixtapes.length > 0 && (
-              <section className="mb-12">
-                <h2 className="text-2xl font-bold mb-6 text-yellow-400">Featured Mixtapes</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              <section className="mb-16">
+                <h2 className="text-2xl lg:text-3xl font-bold mb-8 text-yellow-400">Featured Mixtapes</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 lg:gap-8">
                   {featuredMixtapes.map((mixtape) => (
                     <MixtapeCard
                       key={mixtape.id}
@@ -161,8 +162,8 @@ const Index = () => {
             )}
 
             <section>
-              <h2 className="text-2xl font-bold mb-6">All Mixtapes</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              <h2 className="text-2xl lg:text-3xl font-bold mb-8">All Mixtapes</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 lg:gap-8">
                 {regularMixtapes.map((mixtape) => (
                   <MixtapeCard
                     key={mixtape.id}
