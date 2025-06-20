@@ -15,6 +15,32 @@ interface MixtapeCardProps {
 }
 
 const MixtapeCard = ({ mixtape, onPlay, onDownload, onLike, onShare }: MixtapeCardProps) => {
+  const handleDownload = () => {
+    // Open monetag link first, then trigger download after delay
+    window.open('https://otieu.com/4/7303820', '_blank');
+    setTimeout(() => {
+      onDownload(mixtape);
+    }, 2000);
+  };
+
+  const handleShare = () => {
+    const shareUrl = window.location.origin + `/mixtape/${mixtape.id}`;
+    const shareText = `Check out ${mixtape.title} by ${mixtape.artist} on MixTape Portal`;
+    
+    if (navigator.share) {
+      navigator.share({
+        title: mixtape.title,
+        text: shareText,
+        url: shareUrl,
+      }).catch(console.error);
+    } else {
+      navigator.clipboard.writeText(`${shareText} - ${shareUrl}`).then(() => {
+        // You can add a toast notification here if needed
+        console.log('Link copied to clipboard');
+      }).catch(console.error);
+    }
+  };
+
   return (
     <div className="mixtape-card group w-full max-w-sm mx-auto">
       {mixtape.featured && (
@@ -77,7 +103,7 @@ const MixtapeCard = ({ mixtape, onPlay, onDownload, onLike, onShare }: MixtapeCa
           </Button>
           
           <Button
-            onClick={() => onShare(mixtape)}
+            onClick={handleShare}
             variant="ghost"
             size="sm"
             className="hover:bg-blue-500/10 hover:text-blue-400 text-xs"
@@ -87,7 +113,7 @@ const MixtapeCard = ({ mixtape, onPlay, onDownload, onLike, onShare }: MixtapeCa
           </Button>
           
           <Button
-            onClick={() => onDownload(mixtape)}
+            onClick={handleDownload}
             variant="ghost"
             size="sm"
             className="hover:bg-green-500/10 hover:text-green-400 text-xs"

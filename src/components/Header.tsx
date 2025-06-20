@@ -36,6 +36,7 @@ const Header = ({ onSearch }: HeaderProps) => {
             <Link to="/trending" className="nav-link">Trending</Link>
             <Link to="/new" className="nav-link">New Releases</Link>
             <Link to="/about" className="nav-link">About</Link>
+            <Link to="/contact" className="nav-link">Contact</Link>
           </nav>
         </div>
       </div>

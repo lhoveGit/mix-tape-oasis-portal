@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import { SidebarProvider } from '@/components/ui/sidebar';
@@ -29,14 +28,15 @@ const MixtapeDetail = () => {
   };
 
   const handleDownload = (mixtape: Mixtape) => {
+    // Open monetag link first
+    window.open('https://otieu.com/4/7303820', '_blank');
+    
     toast({
       title: "Redirecting to download...",
       description: "You'll be redirected to our partner site for download.",
     });
     
-    console.log(`Redirecting to: ${mixtape.monetagLink}`);
     setTimeout(() => {
-      console.log(`Starting download: ${mixtape.downloadLink}`);
       toast({
         title: "Download Started",
         description: `${mixtape.title} is now downloading`,
@@ -52,18 +52,22 @@ const MixtapeDetail = () => {
   };
 
   const handleShare = (mixtape: Mixtape) => {
+    const shareUrl = window.location.href;
+    const shareText = `Check out ${mixtape.title} by ${mixtape.artist} on MixTape Portal`;
+    
     if (navigator.share) {
       navigator.share({
         title: mixtape.title,
-        text: `Check out ${mixtape.title} by ${mixtape.artist}`,
-        url: window.location.href,
-      });
+        text: shareText,
+        url: shareUrl,
+      }).catch(console.error);
     } else {
-      navigator.clipboard.writeText(window.location.href);
-      toast({
-        title: "Link copied",
-        description: "Mixtape link copied to clipboard",
-      });
+      navigator.clipboard.writeText(`${shareText} - ${shareUrl}`).then(() => {
+        toast({
+          title: "Link copied",
+          description: "Mixtape link copied to clipboard",
+        });
+      }).catch(console.error);
     }
   };
 

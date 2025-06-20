@@ -9,6 +9,7 @@ import Search from "./pages/Search";
 import Trending from "./pages/Trending";
 import NewReleases from "./pages/NewReleases";
 import About from "./pages/About";
+import Contact from "./pages/Contact";
 import MixtapeDetail from "./pages/MixtapeDetail";
 import NotFound from "./pages/NotFound";
 
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/trending" element={<Trending />} />
           <Route path="/new" element={<NewReleases />} />
           <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/mixtape/:id" element={<MixtapeDetail />} />
           <Route path="/genre/:genreId" element={<Search />} />
           <Route path="/liked" element={<Search />} />

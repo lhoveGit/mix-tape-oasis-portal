@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Music, Search, Heart, Share, Download } from 'lucide-react';
+import { Music, Search, Heart, Download, User, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import {
   Sidebar,
@@ -36,6 +36,16 @@ const navigationItems = [
     title: 'Downloads',
     url: '/downloads',
     icon: Download,
+  },
+  {
+    title: 'About',
+    url: '/about',
+    icon: User,
+  },
+  {
+    title: 'Contact',
+    url: '/contact',
+    icon: Phone,
   },
 ];
 

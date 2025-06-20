@@ -5,7 +5,7 @@ import { AppSidebar } from '../components/AppSidebar';
 import AnnouncementBar from '../components/AnnouncementBar';
 import Header from '../components/Header';
 import { Button } from '@/components/ui/button';
-import { Music, Users, Download, Star } from 'lucide-react';
+import { Music, Users, Download, Star, MapPin, Phone, User } from 'lucide-react';
 
 const About = () => {
   return (
@@ -85,6 +85,28 @@ const About = () => {
                   <li>Regular updates with new releases and trending content</li>
                   <li>Community features for sharing and discovering music</li>
                 </ul>
+
+                <div className="bg-gradient-to-br from-purple-900/20 to-blue-900/20 backdrop-blur-lg border border-white/10 rounded-xl p-6 mt-8">
+                  <h3 className="text-2xl font-bold mb-4 flex items-center">
+                    <User className="w-6 h-6 mr-2 text-purple-400" />
+                    About the Creator
+                  </h3>
+                  <div className="space-y-3">
+                    <p className="text-lg font-semibold">Kwabena Loventhon</p>
+                    <div className="flex items-center text-muted-foreground">
+                      <MapPin className="w-4 h-4 mr-2" />
+                      <span>Born in Accra, Odorkor, Ghana</span>
+                    </div>
+                    <div className="flex items-center text-muted-foreground">
+                      <Phone className="w-4 h-4 mr-2" />
+                      <span>WhatsApp: +233 536785567</span>
+                    </div>
+                    <p className="text-muted-foreground mt-4">
+                      Passionate about bringing the best mixtapes to music lovers worldwide. 
+                      Based in Ghana, I curate and share amazing music experiences for the global community.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
