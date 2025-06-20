@@ -57,8 +57,8 @@ export function AppSidebar() {
           <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
             <Music className="w-5 h-5 text-white" />
           </div>
-          <h1 className="text-xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-            MixTape Portal
+          <h1 className="text-lg font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+            LhoveMixtape Hub
           </h1>
         </Link>
       </SidebarHeader>
@@ -103,7 +103,7 @@ export function AppSidebar() {
 
       <SidebarFooter className="p-4">
         <div className="text-xs text-muted-foreground text-center">
-          © 2024 MixTape Portal
+          © 2024 LhoveMixtape Hub
         </div>
       </SidebarFooter>
     </Sidebar>

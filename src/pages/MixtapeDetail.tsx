@@ -28,19 +28,37 @@ const MixtapeDetail = () => {
   };
 
   const handleDownload = (mixtape: Mixtape) => {
+    // Show loading toast
+    toast({
+      title: "Redirecting to ads...",
+      description: "Please wait while we redirect you to our partner.",
+    });
+    
     // Open monetag link first
     window.open('https://otieu.com/4/7303820', '_blank');
     
-    toast({
-      title: "Redirecting to download...",
-      description: "You'll be redirected to our partner site for download.",
-    });
-    
+    // Start download after ad delay
     setTimeout(() => {
-      toast({
-        title: "Download Started",
-        description: `${mixtape.title} is now downloading`,
-      });
+      if (mixtape.downloadLink) {
+        // Create a temporary link to trigger download
+        const link = document.createElement('a');
+        link.href = mixtape.downloadLink;
+        link.download = `${mixtape.artist} - ${mixtape.title}.mp3`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+        toast({
+          title: "Download Started",
+          description: `${mixtape.title} is now downloading`,
+        });
+      } else {
+        toast({
+          title: "Download Link Missing",
+          description: "Please contact admin to add download link for this mixtape.",
+          variant: "destructive",
+        });
+      }
     }, 3000);
   };
 
@@ -53,7 +71,7 @@ const MixtapeDetail = () => {
 
   const handleShare = (mixtape: Mixtape) => {
     const shareUrl = window.location.href;
-    const shareText = `Check out ${mixtape.title} by ${mixtape.artist} on MixTape Portal`;
+    const shareText = `Check out ${mixtape.title} by ${mixtape.artist} on LhoveMixtape Hub`;
     
     if (navigator.share) {
       navigator.share({

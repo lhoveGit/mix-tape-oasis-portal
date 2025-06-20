@@ -1,9 +1,9 @@
-
 import React from 'react';
 import { Heart, Share, Download, Play } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { toast } from '@/hooks/use-toast';
 import { Mixtape } from '../types/mixtape';
 
 interface MixtapeCardProps {
@@ -16,16 +16,43 @@ interface MixtapeCardProps {
 
 const MixtapeCard = ({ mixtape, onPlay, onDownload, onLike, onShare }: MixtapeCardProps) => {
   const handleDownload = () => {
-    // Open monetag link first, then trigger download after delay
-    window.open('https://otieu.com/4/7303820', '_blank');
+    // Show loading toast
+    toast({
+      title: "Redirecting to ads...",
+      description: "Please wait while we redirect you to our partner.",
+    });
+    
+    // Open monetag link first
+    const adWindow = window.open('https://otieu.com/4/7303820', '_blank');
+    
+    // Start download after ad delay
     setTimeout(() => {
-      onDownload(mixtape);
-    }, 2000);
+      if (mixtape.downloadLink) {
+        // Create a temporary link to trigger download
+        const link = document.createElement('a');
+        link.href = mixtape.downloadLink;
+        link.download = `${mixtape.artist} - ${mixtape.title}.mp3`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+        toast({
+          title: "Download Started",
+          description: `${mixtape.title} is now downloading`,
+        });
+      } else {
+        toast({
+          title: "Download Link Missing",
+          description: "Please contact admin to add download link for this mixtape.",
+          variant: "destructive",
+        });
+      }
+    }, 3000);
   };
 
   const handleShare = () => {
     const shareUrl = window.location.origin + `/mixtape/${mixtape.id}`;
-    const shareText = `Check out ${mixtape.title} by ${mixtape.artist} on MixTape Portal`;
+    const shareText = `Check out ${mixtape.title} by ${mixtape.artist} on LhoveMixtape Hub`;
     
     if (navigator.share) {
       navigator.share({
@@ -35,8 +62,10 @@ const MixtapeCard = ({ mixtape, onPlay, onDownload, onLike, onShare }: MixtapeCa
       }).catch(console.error);
     } else {
       navigator.clipboard.writeText(`${shareText} - ${shareUrl}`).then(() => {
-        // You can add a toast notification here if needed
-        console.log('Link copied to clipboard');
+        toast({
+          title: "Link copied!",
+          description: "Mixtape link copied to clipboard",
+        });
       }).catch(console.error);
     }
   };

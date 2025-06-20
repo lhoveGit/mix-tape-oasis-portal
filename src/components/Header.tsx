@@ -16,7 +16,7 @@ const Header = ({ onSearch }: HeaderProps) => {
           <div className="flex items-center space-x-4">
             <Link to="/" className="hidden lg:flex items-center space-x-2 hover:opacity-80 transition-opacity">
               <Music className="w-6 h-6 text-purple-400" />
-              <span className="text-xl font-bold">MixTape Portal</span>
+              <span className="text-lg font-bold">LhoveMixtape Hub</span>
             </Link>
           </div>
 
