@@ -2,7 +2,7 @@
 import React from 'react';
 import { Search, Music } from 'lucide-react';
 import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 interface HeaderProps {
   onSearch: (query: string) => void;
@@ -14,10 +14,10 @@ const Header = ({ onSearch }: HeaderProps) => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
-            <div className="flex items-center space-x-2">
+            <Link to="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
               <Music className="w-6 h-6 text-purple-400" />
               <span className="text-xl font-bold">MixTape Portal</span>
-            </div>
+            </Link>
           </div>
 
           <div className="flex items-center space-x-4 flex-1 max-w-md mx-8">
@@ -32,10 +32,10 @@ const Header = ({ onSearch }: HeaderProps) => {
           </div>
 
           <nav className="flex items-center space-x-6">
-            <a href="/" className="nav-link">Home</a>
-            <a href="/trending" className="nav-link">Trending</a>
-            <a href="/new" className="nav-link">New Releases</a>
-            <a href="/about" className="nav-link">About</a>
+            <Link to="/" className="nav-link">Home</Link>
+            <Link to="/trending" className="nav-link">Trending</Link>
+            <Link to="/new" className="nav-link">New Releases</Link>
+            <Link to="/about" className="nav-link">About</Link>
           </nav>
         </div>
       </div>

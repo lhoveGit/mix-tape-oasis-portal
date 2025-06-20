@@ -50,7 +50,6 @@ const Index = () => {
       description: "You'll be redirected to our partner site for download.",
     });
     
-    // Simulate monetag redirect - replace with actual implementation
     console.log(`Redirecting to: ${mixtape.monetagLink}`);
     setTimeout(() => {
       console.log(`Starting download: ${mixtape.downloadLink}`);
@@ -122,6 +121,10 @@ const Index = () => {
         <AppSidebar />
         
         <main className="flex-1 flex flex-col">
+          <div className="flex items-center gap-2 p-4 border-b border-white/10 md:hidden">
+            <SidebarTrigger />
+            <span className="text-lg font-semibold">MixTape Portal</span>
+          </div>
           <Header onSearch={setSearchQuery} />
           
           <div className="flex-1 container mx-auto px-4 py-8 pb-32">

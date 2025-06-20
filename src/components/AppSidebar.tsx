@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Music, Search, Heart, Share, Download } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import {
   Sidebar,
   SidebarContent,
@@ -42,14 +43,14 @@ export function AppSidebar() {
   return (
     <Sidebar className="border-r border-white/10">
       <SidebarHeader className="p-6">
-        <div className="flex items-center space-x-2">
+        <Link to="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
           <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
             <Music className="w-5 h-5 text-white" />
           </div>
           <h1 className="text-xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
             MixTape Portal
           </h1>
-        </div>
+        </Link>
       </SidebarHeader>
       
       <SidebarContent>
@@ -60,10 +61,10 @@ export function AppSidebar() {
               {navigationItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
-                    <a href={item.url} className="flex items-center space-x-3 p-2 rounded-lg hover:bg-white/5 transition-colors">
+                    <Link to={item.url} className="flex items-center space-x-3 p-2 rounded-lg hover:bg-white/5 transition-colors">
                       <item.icon className="w-5 h-5" />
                       <span>{item.title}</span>
-                    </a>
+                    </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
@@ -78,10 +79,10 @@ export function AppSidebar() {
               {genres.map((genre) => (
                 <SidebarMenuItem key={genre.id}>
                   <SidebarMenuButton asChild>
-                    <a href={`/genre/${genre.id}`} className="flex items-center space-x-3 p-2 rounded-lg hover:bg-white/5 transition-colors">
+                    <Link to={`/search?genre=${genre.name}`} className="flex items-center space-x-3 p-2 rounded-lg hover:bg-white/5 transition-colors">
                       <div className={`w-3 h-3 rounded-full bg-gradient-to-r ${genre.color}`}></div>
                       <span>{genre.name}</span>
-                    </a>
+                    </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
