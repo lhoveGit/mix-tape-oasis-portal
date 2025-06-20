@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { play, skip-back, skip-forward, like, share } from 'lucide-react';
+import { Play, SkipBack, SkipForward, Heart, Share } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Slider } from '@/components/ui/slider';
 import { Mixtape } from '../types/mixtape';
@@ -57,7 +57,7 @@ const MusicPlayer = ({
                 size="sm"
                 className="hover:bg-white/10"
               >
-                <skip-back className="w-5 h-5" />
+                <SkipBack className="w-5 h-5" />
               </Button>
               
               <Button
@@ -65,7 +65,7 @@ const MusicPlayer = ({
                 size="lg"
                 className="rounded-full bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600"
               >
-                <play className="w-6 h-6" />
+                <Play className="w-6 h-6" />
               </Button>
               
               <Button
@@ -74,7 +74,7 @@ const MusicPlayer = ({
                 size="sm"
                 className="hover:bg-white/10"
               >
-                <skip-forward className="w-5 h-5" />
+                <SkipForward className="w-5 h-5" />
               </Button>
             </div>
 
@@ -100,7 +100,7 @@ const MusicPlayer = ({
               size="sm"
               className="hover:bg-red-500/10 hover:text-red-400"
             >
-              <like className="w-4 h-4" />
+              <Heart className="w-4 h-4" />
             </Button>
             
             <Button
@@ -109,7 +109,7 @@ const MusicPlayer = ({
               size="sm"
               className="hover:bg-blue-500/10 hover:text-blue-400"
             >
-              <share className="w-4 h-4" />
+              <Share className="w-4 h-4" />
             </Button>
 
             {/* Volume Control */}
