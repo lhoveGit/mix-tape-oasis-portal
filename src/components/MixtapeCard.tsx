@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { like, share, download, play } from 'lucide-react';
+import { Heart, Share, Download, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Mixtape } from '../types/mixtape';
@@ -34,7 +34,7 @@ const MixtapeCard = ({ mixtape, onPlay, onDownload, onLike, onShare }: MixtapeCa
             size="lg"
             className="rounded-full bg-white/20 backdrop-blur-lg border border-white/30 hover:bg-white/30"
           >
-            <play className="w-6 h-6" />
+            <Play className="w-6 h-6" />
           </Button>
         </div>
       </div>
@@ -64,7 +64,7 @@ const MixtapeCard = ({ mixtape, onPlay, onDownload, onLike, onShare }: MixtapeCa
             size="sm"
             className="flex-1 hover:bg-red-500/10 hover:text-red-400"
           >
-            <like className="w-4 h-4 mr-1" />
+            <Heart className="w-4 h-4 mr-1" />
             Like
           </Button>
           
@@ -74,7 +74,7 @@ const MixtapeCard = ({ mixtape, onPlay, onDownload, onLike, onShare }: MixtapeCa
             size="sm"
             className="flex-1 hover:bg-blue-500/10 hover:text-blue-400"
           >
-            <share className="w-4 h-4 mr-1" />
+            <Share className="w-4 h-4 mr-1" />
             Share
           </Button>
           
@@ -84,7 +84,7 @@ const MixtapeCard = ({ mixtape, onPlay, onDownload, onLike, onShare }: MixtapeCa
             size="sm"
             className="flex-1 hover:bg-green-500/10 hover:text-green-400"
           >
-            <download className="w-4 h-4 mr-1" />
+            <Download className="w-4 h-4 mr-1" />
             Download
           </Button>
         </div>

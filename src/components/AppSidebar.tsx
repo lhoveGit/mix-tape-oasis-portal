@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { music, search, like, share, download } from 'lucide-react';
+import { Music, Search, Heart, Share, Download } from 'lucide-react';
 import {
   Sidebar,
   SidebarContent,
@@ -19,22 +19,22 @@ const navigationItems = [
   {
     title: 'Home',
     url: '/',
-    icon: music,
+    icon: Music,
   },
   {
     title: 'Search',
     url: '/search',
-    icon: search,
+    icon: Search,
   },
   {
     title: 'Liked',
     url: '/liked',
-    icon: like,
+    icon: Heart,
   },
   {
     title: 'Downloads',
     url: '/downloads',
-    icon: download,
+    icon: Download,
   },
 ];
 
@@ -44,7 +44,7 @@ export function AppSidebar() {
       <SidebarHeader className="p-6">
         <div className="flex items-center space-x-2">
           <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
-            <music className="w-5 h-5 text-white" />
+            <Music className="w-5 h-5 text-white" />
           </div>
           <h1 className="text-xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
             MixTape Portal
