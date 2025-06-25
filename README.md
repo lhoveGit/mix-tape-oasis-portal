@@ -1,73 +1,147 @@
-# Welcome to your Lovable project
 
-## Project info
+# 🎵 Mixtape Hub
 
-**URL**: https://lovable.dev/projects/46c41005-38a8-41d4-afe3-c09819c0d643
+A modern web application for discovering, streaming, and downloading mixtapes.
 
-## How can I edit this code?
+## 🏗️ Architecture
 
-There are several ways of editing your application.
+- **Frontend**: React + TypeScript + Vite (deployed on GitHub Pages)
+- **Backend**: Node.js + Express + MongoDB (deployed on Vercel)
+- **Database**: MongoDB Atlas
+- **Styling**: Tailwind CSS + Shadcn UI
 
-**Use Lovable**
+## 🚀 Live Demo
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/46c41005-38a8-41d4-afe3-c09819c0d643) and start prompting.
+- **Frontend**: https://yourusername.github.io/mixtape-hub
+- **Backend API**: https://your-backend.vercel.app
 
-Changes made via Lovable will be committed automatically to this repo.
+## 📁 Project Structure
 
-**Use your preferred IDE**
+```
+mixtape-hub/
+├── frontend/                 # React frontend application
+│   ├── src/
+│   │   ├── components/       # Reusable UI components
+│   │   ├── pages/           # Page components
+│   │   ├── services/        # API services
+│   │   ├── hooks/           # Custom React hooks
+│   │   └── types/           # TypeScript type definitions
+│   ├── package.json
+│   └── vite.config.ts
+├── backend/                  # Node.js API server
+│   ├── models/              # MongoDB models
+│   ├── routes/              # API routes
+│   ├── middleware/          # Express middleware
+│   ├── config/              # Configuration files
+│   ├── scripts/             # Utility scripts
+│   ├── utils/               # Helper functions
+│   ├── server.js           # Main server file
+│   └── vercel.json         # Vercel deployment config
+└── .github/workflows/       # GitHub Actions
+```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🛠️ Local Development
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+### Backend Setup
+```bash
+cd backend
+npm install
+cp .env.example .env
+# Edit .env with your MongoDB connection string
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Frontend Setup
+```bash
+cd frontend  
+npm install
+npm run dev
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🚀 Deployment
 
-**Use GitHub Codespaces**
+See [DEPLOYMENT_STEPS.md](./DEPLOYMENT_STEPS.md) for complete deployment instructions.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Quick Deploy Commands
 
-## What technologies are used for this project?
+**Backend to Vercel:**
+```bash
+cd backend
+vercel --prod
+```
 
-This project is built with:
+**Frontend to GitHub Pages:**
+```bash
+cd frontend
+npm run deploy
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 🔧 Environment Variables
 
-## How can I deploy this project?
+### Backend (.env)
+```
+MONGODB_URI=mongodb+srv://...
+NODE_ENV=production
+FRONTEND_URL=https://yourusername.github.io/mixtape-hub
+```
 
-Simply open [Lovable](https://lovable.dev/projects/46c41005-38a8-41d4-afe3-c09819c0d643) and click on Share -> Publish.
+### Frontend (.env.production)
+```
+VITE_API_URL=https://your-backend.vercel.app/api
+```
 
-## Can I connect a custom domain to my Lovable project?
+## 📊 API Endpoints
 
-Yes, you can!
+- `GET /health` - Health check
+- `GET /api/mixtapes` - Get all mixtapes
+- `GET /api/mixtapes/featured` - Get featured mixtapes  
+- `GET /api/mixtapes/trending` - Get trending mixtapes
+- `GET /api/genres` - Get all genres
+- `POST /api/mixtapes/:id/play` - Increment play count
+- `POST /api/mixtapes/:id/like` - Increment likes
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 🎯 Features
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+- 🎵 Browse and discover mixtapes
+- 🔍 Search and filter by genre
+- ⭐ Featured and trending sections
+- 📱 Responsive design
+- 🎮 Music player interface
+- 💾 Download functionality
+- 👍 Like and share features
+
+## 🧪 Testing
+
+**Backend Health Check:**
+```bash
+cd backend
+node scripts/healthCheck.js
+```
+
+**Frontend Build Test:**
+```bash
+cd frontend
+npm run build
+```
+
+## 📈 Monitoring
+
+- **Backend Health**: `https://your-backend.vercel.app/health`
+- **Vercel Dashboard**: Monitor function logs and performance
+- **GitHub Actions**: Check deployment status
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+## 📝 License
+
+MIT License - see LICENSE file for details.
+
+---
+
+Built with ❤️ using React, Node.js, and MongoDB
